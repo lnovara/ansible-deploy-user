@@ -1,0 +1,30 @@
+---
+
+galaxy_info:
+  author: Luca Novara
+  description: Creta a user, then setup public SSH key and passwordless sudo for this user.
+  company:
+  license: MIT
+  min_ansible_version: 2.2
+  issue_tracker_url: https://github.com/lnovara/ansible-deploy-user/issues
+
+  platforms:
+    - name: Debian
+      versions:
+        - wheezy
+        - jessie
+        - stretch
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - zesty
+
+  galaxy_tags:
+    - system
+
+dependencies: []

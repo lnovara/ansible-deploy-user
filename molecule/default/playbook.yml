@@ -1,0 +1,9 @@
+---
+- name: Converge
+  hosts: all
+
+  roles:
+    - role: lnovara.deploy-user
+
+  vars_files:
+    - ./playbook-vars.yml

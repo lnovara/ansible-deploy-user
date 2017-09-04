@@ -1,0 +1,17 @@
+---
+
+# User's name
+user_name: deploy
+
+# Additional groups
+user_groups: []
+
+# User's shell
+user_shell: /bin/bash
+
+# List of public key files for user's .ssh/authorized_keys
+public_keys:
+  - ~/.ssh/id_rsa.pub
+
+# Enable passwordless sudo
+enable_passwordless_sudo: True

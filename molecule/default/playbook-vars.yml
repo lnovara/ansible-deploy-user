@@ -1,0 +1,16 @@
+---
+
+# FIXME: this effectively duplicates defaults/main.yml but it is the only way I
+# found to have all the user-facing variables in one place to write tests
+# against.
+
+user_name: 'deploy'
+user_groups:
+  - 'foo'
+  - 'bar'
+user_shell: '/bin/bash'
+
+public_keys:
+  - '~/.ssh/id_rsa.pub'
+
+enable_passwordless_sudo: True
