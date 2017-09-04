@@ -3,7 +3,7 @@
   hosts: all
 
   roles:
-    - role: lnovara.deploy-user
+    - role: ansible-deploy-user
 
   vars_files:
     - ./playbook-vars.yml

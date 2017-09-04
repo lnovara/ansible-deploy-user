@@ -15,9 +15,9 @@ Execute the tests
 -----------------
 
 ```bash
-ansible-galaxy install lnovara.deploy-user -p .
+git clone https://github.com/lnovara/ansible-deploy-user.git
 
-cd lnovara.deploy-user
+cd ansible-deploy-user
 
 # test all the scenarios
 molecule test --all
