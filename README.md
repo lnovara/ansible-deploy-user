@@ -1,6 +1,8 @@
 Ansible Role: deploy-user
 =========================
 
+[![Build Status](https://travis-ci.org/lnovara/ansible-deploy-user.svg?branch=master)](https://travis-ci.org/lnovara/ansible-deploy-user)
+
 Setup a user account with public key login and passwordless sudo.
 
 Requirements
