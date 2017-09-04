@@ -11,6 +11,6 @@ user_groups:
 user_shell: '/bin/bash'
 
 public_keys:
-  - '~/.ssh/id_rsa.pub'
+  - '/tmp/id_rsa.pub'
 
 enable_passwordless_sudo: True

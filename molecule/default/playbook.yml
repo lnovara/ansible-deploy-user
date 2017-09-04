@@ -2,6 +2,10 @@
 - name: Converge
   hosts: all
 
+  pre_tasks:
+    - name: Create fake SSH key
+      local_action: copy content="ssh-rsa foo hello@world" dest=/tmp/id_rsa.pub mode=0640
+
   roles:
     - role: ansible-deploy-user
 
