@@ -2,6 +2,7 @@ Ansible Role: deploy-user
 =========================
 
 [![Build Status](https://travis-ci.org/lnovara/ansible-deploy-user.svg?branch=master)](https://travis-ci.org/lnovara/ansible-deploy-user)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/20234.svg)](https://galaxy.ansible.com/lnovara/deploy-user)
 
 Setup a user account with public key login and passwordless sudo.
 
@@ -36,7 +37,7 @@ List of public keys to add to the user's `.ssh/authorized_keys` file.
 
     enable_passwordless_sudo: True
 
-Enable passwordless sudo for the newly created the user.
+Enable passwordless sudo for the newly created user.
 
 Dependencies
 ------------
