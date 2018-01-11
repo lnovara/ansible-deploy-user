@@ -1,18 +1,20 @@
 ---
-
-scenario:
-  name: default
+dependency:
+  name: galaxy
 
 driver:
   name: docker
 
+lint:
+  name: yamllint
+
 platforms:
-  - name: centos-6
-    image: centos:6
+  # - name: centos-6
+  #   image: centos:6
   - name: centos-7
     image: centos:7
-  - name: debian-wheezy
-    image: debian:wheezy
+  # - name: debian-wheezy
+  #   image: debian:wheezy
   - name: debian-jessie
     image: debian:jessie
   - name: debian-stretch
@@ -32,11 +34,8 @@ provisioner:
   lint:
     name: ansible-lint
 
-dependency:
-  name: galaxy
-
-lint:
-  name: yamllint
+scenario:
+  name: default
 
 verifier:
   name: testinfra
