@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: Luca Novara
-  description: Creta a user, then setup public SSH key and passwordless sudo for this user.
+  description: Create a user, then setup public SSH key and passwordless sudo for this user.
   company:
   license: MIT
   min_ansible_version: 2.2

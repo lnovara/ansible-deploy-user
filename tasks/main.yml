@@ -2,45 +2,47 @@
 
 - name: Create deploy user group(s)
   group:
-    name: '{{ item }}'
-    state: 'present'
-  with_items: '{{ user_groups }}'
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ user_groups }}"
 
 - name: Create deploy user
   user:
-    append: True
-    groups: '{{ (user_groups | join(",")) }}'
-    name: '{{ user_name }}'
-    shell: '{{ user_shell }}'
-    state: 'present'
+    append: yes
+    groups: "{{ (user_groups | join(',')) }}"
+    name: "{{ user_name }}"
+    password: "{{ lookup('password', '/dev/null length=18') | password_hash('sha512') }}"
+    shell: "{{ user_shell }}"
+    state: present
+    update_password: on_create
 
 - name: Setup authorized_keys
   authorized_key:
-    key: '{{ item }}'
-    user: '{{ user_name }}'
-    state: 'present'
-  with_file: '{{ public_keys }}'
+    key: "{{ item }}"
+    user: "{{ user_name }}"
+    state: present
+  with_file: "{{ public_keys }}"
 
 - name: Install sudo package
   package:
-    name: 'sudo'
-    state: 'present'
+    name: sudo
+    state: present
 
 - name: Setup sudoers.d
   lineinfile:
-    dest: '/etc/sudoers'
-    line: '#includedir /etc/sudoers.d'
-    regexp: '^#includedir /etc/sudoers.d'
-    validate: 'visudo -cf %s'
-    state: 'present'
+    dest: /etc/sudoers
+    line: "#includedir /etc/sudoers.d"
+    regexp: "^#includedir /etc/sudoers.d"
+    validate: "visudo -cf %s"
+    state: present
   when: enable_passwordless_sudo
 
 - name: Setup passwordless sudo
   template:
     src: deploy_user.j2
-    dest: '/etc/sudoers.d/{{ user_name }}'
-    owner: 'root'
-    group: 'root'
-    mode: '0440'
-    validate: 'visudo -cf %s'
+    dest: "/etc/sudoers.d/{{ user_name }}"
+    owner: root
+    group: root
+    mode: 0440
+    validate: "visudo -cf %s"
   when: enable_passwordless_sudo
